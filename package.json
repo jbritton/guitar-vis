@@ -1,0 +1,37 @@
+{
+  "name": "guitar-vis",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jbritton/guitar-vis.git"
+  },
+  "author": "jbritton <britton.jeff@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbritton/guitar-vis/issues"
+  },
+  "homepage": "https://github.com/jbritton/guitar-vis",
+  "dependencies": {
+    "express": "^4.9.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-concat": "^2.4.1",
+    "gulp-util": "^3.0.1",
+    "gulp-uglify": "^1.0.1",
+    "gulp-angular-templatecache": "^1.4.1",
+    "gulp-minify-html": "^0.1.5",
+    "gulp-beautify": "^1.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-filesize": "0.0.6"
+  }
+}

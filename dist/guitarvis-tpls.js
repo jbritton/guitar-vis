@@ -1,0 +1,3 @@
+angular.module("guitarvis").run(["$templateCache", function ($templateCache) {
+  $templateCache.put("guitarvis/fretboard.html", "<div class=\"fretboard-wrapper\"><table class=\"table table-bordered fretboard\"><tbody><tr ng-repeat=\"noteRow in fretdata.noteMatrix\"><td ng-repeat=\"note in noteRow\">{{note}}</td></tr></tbody><tfoot><tr><th ng-repeat=\"note in fretdata.noteMatrix[0]\">{{$index+1}}</th></tr></tfoot></table></div>");
+}]);
