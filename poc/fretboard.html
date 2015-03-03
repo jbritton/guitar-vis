@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fretboard POC</title>
+    <meta charset="utf-8" />
+
+    <style type="text/css">
+
+        table.fretboard {
+            border: 1px solid #ccc;
+            border-left: 10px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        table.fretboard tr.string {
+            background-image: url("../style/string-bg.png");
+            background-repeat: repeat-x;
+            background-position: center;
+        }
+
+        table.fretboard td {
+            padding: 5px 0px;
+            border-right: 1px solid #ccc;
+            text-align: center;
+            width: 50px;
+        }
+
+        table.fretboard td span.note {
+            border-radius: 50%;
+            padding: 2px;
+            width: 20px;
+            height: 20px;
+            background: #f60;
+            border: 1px solid #f50;
+            color: #fff;
+            text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <table class="fretboard">
+        <tbody>
+            <tr class="string">
+                <td><span class="note">e</span></td>
+                <td><span class="note">f</span></td>
+                <td><span class="note">f</span></td>
+                <td><span class="note">f#</span></td>
+                <td><span class="note">g</span></td>
+                <td><span class="note">g#</span></td>
+                <td><span class="note">a</span></td>
+                <td><span class="note">a#</span></td>
+            </tr>
+            <tr class="string">
+                <td><span class="note">b</span></td>
+                <td><span class="note">c</span></td>
+                <td><span class="note">c#</span></td>
+                <td><span class="note">d</span></td>
+                <td><span class="note">d#</span></td>
+                <td><span class="note">e</span></td>
+                <td><span class="note">f</span></td>
+                <td><span class="note">f#</span></td>
+            </tr>
+            <tr class="string">
+                <td><span class="note">g</span></td>
+                <td><span class="note">g#</span></td>
+                <td><span class="note">a</span></td>
+                <td><span class="note">a#</span></td>
+                <td><span class="note">b</span></td>
+                <td><span class="note">c</span></td>
+                <td><span class="note">c#</span></td>
+                <td><span class="note">d</span></td>
+            </tr>
+            <tr class="string">
+                <td><span class="note">d</span></td>
+                <td><span class="note">d#</span></td>
+                <td><span class="note">e</span></td>
+                <td><span class="note">f</span></td>
+                <td><span class="note">f#</span></td>
+                <td><span class="note">g</span></td>
+                <td><span class="note">g#</span></td>
+                <td><span class="note">a</span></td>
+            </tr>
+            <tr class="string">
+                <td><span class="note">a</span></td>
+                <td><span class="note">a#</span></td>
+                <td><span class="note">b</span></td>
+                <td><span class="note">c</span></td>
+                <td><span class="note">c#</span></td>
+                <td><span class="note">d</span></td>
+                <td><span class="note">d#</span></td>
+                <td><span class="note">e</span></td>
+            </tr>
+            <tr class="string">
+                <td><span class="note">e</span></td>
+                <td><span class="note">f</span></td>
+                <td><span class="note">f#</span></td>
+                <td><span class="note">g</span></td>
+                <td><span class="note">g#</span></td>
+                <td><span class="note">a</span></td>
+                <td><span class="note">a#</span></td>
+                <td><span class="note">b</span></td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+</html>

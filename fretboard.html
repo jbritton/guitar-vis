@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link type="text/css" rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="lib/d3/d3.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(function(){
+            var fretCount = 20;
+            var stringCount = 6;
+
+            var padding = {left: 20, right: 20, top: 0, bottom: 0};
+
+            var $fretboard = $('#fretboard');
+            var height = $fretboard.height();
+            var width = $fretboard.width() - 20;
+
+            // draw fretboard svg
+            var svg = d3.select('#fretboard')
+                    .append('svg')
+                    .attr('height', height)
+                    .attr('width', width);
+
+
+            // draw frets
+            var fretData = d3.range(1, fretCount+1);
+            var xStep = 100;
+            var xOffset = 10;
+
+            var fretboardGroup = svg.append('g')
+                    .attr('class', 'fretboard')
+                    .attr('transform', 'translate('+ (xStep / 2) +',0)')
+
+            var fretGroup = fretboardGroup.append('g')
+                    .attr('class', 'frets');
+
+            // draw nut
+            fretGroup.append('rect')
+                    .attr('class', 'nut')
+                    .attr('x', 0)
+                    .attr('y', 0)
+                    .attr('height', height)
+                    .attr('width', xOffset);
+
+            // draw frets
+            fretGroup.selectAll('line')
+                    .data(fretData)
+                    .enter()
+                    .append('line')
+                    .attr('class', function(d){ return 'fret-'+d})
+                    .attr('x1', function(d){
+                        return (d * xStep) + xOffset;
+                    })
+                    .attr('y1', 0)
+                    .attr('x2', function(d){
+                        return (d * xStep) + xOffset;
+                    })
+                    .attr('y2', height);
+
+
+            // draw strings
+            var stringData = d3.range(1, stringCount+1);
+            var yStep = height / stringCount;
+            var yOffset = yStep / 2;
+
+            var stringGroup = fretboardGroup.append('g')
+                    .attr('class', 'strings');
+
+            stringGroup.selectAll('line')
+                    .data(stringData)
+                    .enter()
+                    .append('line')
+                    .attr('class', function(d){ return 'string-'+d})
+                    .attr('x1', 0)
+                    .attr('y1', function(d){
+                        return ((d - 1) * yStep) + yOffset;
+                    })
+                    .attr('x2', width)
+                    .attr('y2', function(d){
+                        return ((d - 1) * yStep) + yOffset;
+                    });
+
+
+            // draw markers
+            var markerData = [5,7,9,12,15,17];
+            var markerGroup = fretboardGroup.append('g')
+                    .attr('class', 'markers');
+
+            markerGroup.selectAll('circle')
+                    .data(markerData)
+                    .enter()
+                    .append('circle')
+                    .attr('cx', function(d){
+                        return (d * xStep) + xOffset - (xStep / 2);
+                    })
+                    .attr('cy', ((stringCount / 2) * yStep))
+                    .attr('r', 10);
+
+
+
+            // draw note matrix overlay
+            var noteMatrixData = stringData.map(function(stringId){
+                return fretData.map(function(fretId){
+                    return { s: stringId, f: fretId };
+                })
+            });
+            var noteMatrixGroup = fretboardGroup.append('g')
+                    .attr('class', 'note-matrix');
+
+            noteMatrixData.forEach(function(stringNotes, stringIdx){
+                var stringId = stringIdx + 1;
+                var stringClass = 'string-' + stringId;
+
+                noteMatrixGroup.selectAll('rect.'+stringClass)
+                        .data(stringNotes)
+                        .enter()
+                        .append('rect')
+                        .attr('class', function(d, i){
+                            var fretId = i+1;
+                            var fretClass = ' fret-' + fretId;
+                            return 'note '+ stringClass + fretClass;
+                        })
+                        .attr('x', function(d, i){
+                            return (i * xStep) + xOffset;
+                        })
+                        .attr('y', function(){
+                            return stringIdx * yStep;
+                        })
+                        .attr('height', yStep)
+                        .attr('width', xStep);
+            });
+
+
+
+
+            // TODO: notes are not part of fretboard group
+            // draw note overlay
+            var noteData = [
+                ['e','f','f#','g','g#','a','a#','b','c','d','e'],
+                ['b','c','d','e','f','f#','g','g#','a','a#','b'],
+                ['g','g#','a','a#','b','c','d','e','f','f#','g'],
+                ['d','e','f','f#','g','g#','a','a#','b','c','d'],
+                ['a','a#','b','c','d','e','f','f#','g','g#','a'],
+                ['e','f','f#','g','g#','a','a#','b','c','d','e'],
+            ];
+
+            var noteGroup = svg.append('g')
+                    .attr('class', 'notes');
+
+            noteData.forEach(function(stringNotes, stringIdx){
+                var stringId = stringIdx + 1;
+                var stringClass = 'string-' + stringId;
+
+                noteGroup.selectAll('circle.'+stringClass)
+                        .data(stringNotes)
+                        .enter()
+                        .append('circle')
+                        .attr('class', function(d, i){
+                            var fretId = i+1;
+                            var fretClass = ' fret-' + fretId;
+                            return 'note '+ stringClass + fretClass;
+                        })
+                        .attr('cx', function(d, i){
+                            var x = (i * xStep) + xOffset;
+                            return (i !== 0)? x : x + 15;
+                        })
+                        .attr('cy', function(d){
+                            return (stringIdx * yStep) + yOffset;
+                        })
+                        .attr('r', 0.3 * Math.min(xStep, yStep));
+            });
+
+
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <section class="container-fluid fretboard-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="fretboard"></div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
