@@ -1,0 +1,62 @@
+
+.fretboard {}
+
+.fretboard table {
+    border-collapse: collapse;
+}
+
+.fretboard th.fret-label {
+    text-align: right;
+}
+
+.fretboard td.fret {
+    width: 100px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-right: 4px solid #ccc;
+    padding: 5px 20px;
+}
+
+.fretboard td.fret:nth-child(1) {
+    width: 50px;
+    border-right: 10px solid #000;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom: 0px;
+}
+
+.note-label {
+    margin-top: 2px;
+    display: inline-block;
+}
+
+.note-label-hide {
+    display: none;
+}
+
+.note {
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #ccc;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.note-open {
+    border: 3px solid lightblue;
+    background: transparent;
+}
+
+.note-root {
+    border: 3px solid #f60;
+    background: blue;
+}
+
+.note-root {
+
+}
+

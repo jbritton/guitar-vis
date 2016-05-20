@@ -1,37 +1,46 @@
 {
   "name": "guitar-vis",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
+    "start": "webpack-dev-server",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "css-loader": "^0.23.1",
+    "exports-loader": "^0.6.3",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "imports-loader": "^0.6.5",
+    "open": "0.0.5",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "d3": "^3.5.17",
+    "jquery": "^2.2.3",
+    "leaflet": "^0.7.7",
+    "lodash": "^4.11.2",
+    "select2": "^4.0.2"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jbritton/guitar-vis.git"
+    "url": "git+https://github.com/jbritton/guitar-vis.git"
   },
-  "author": "jbritton <britton.jeff@gmail.com>",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jbritton/guitar-vis/issues"
   },
-  "homepage": "https://github.com/jbritton/guitar-vis",
-  "dependencies": {
-    "express": "^4.9.5"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-concat": "^2.4.1",
-    "gulp-util": "^3.0.1",
-    "gulp-uglify": "^1.0.1",
-    "gulp-angular-templatecache": "^1.4.1",
-    "gulp-minify-html": "^0.1.5",
-    "gulp-beautify": "^1.1.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-rimraf": "^0.1.0",
-    "gulp-filesize": "0.0.6"
-  }
+  "homepage": "https://github.com/jbritton/guitar-vis#readme"
 }

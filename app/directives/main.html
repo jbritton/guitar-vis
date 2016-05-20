@@ -1,0 +1,40 @@
+<div class="main">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Guitar Vis</a>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group tuning-group">
+                    <label>Tuning:</label>
+                    <select class="form-control"
+                            ng-model="tuningSelection"
+                            ng-options="tuning.label for tuning in tuningOptions">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Key:</label>
+                    <select class="form-control"
+                            ng-model="keySelection"
+                            ng-options="key.label for key in keyOptions">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Scale:</label>
+                    <select class="form-control"
+                            ng-model="scaleSelection"
+                            ng-options="scale.label for scale in scaleOptions">
+                    </select>
+                </div>
+            </form>
+            <!--<ul class="nav navbar-nav">-->
+                <!--<li class="active"><a href="#">Home</a></li>-->
+                <!--<li><a href="#">Link</a></li>-->
+                <!--<li><a href="#">Link</a></li>-->
+            <!--</ul>-->
+        </div>
+    </nav>
+    <section class="container">
+        <div class="row">
+            <fretboard tuning="tuningSelection"></fretboard>
+        </div>
+    </section>
+</div>

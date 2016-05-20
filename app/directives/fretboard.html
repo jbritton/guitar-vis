@@ -1,0 +1,20 @@
+<section class="fretboard">
+    <table>
+        <thead>
+            <tr class="fret-header">
+                <th class="fret-label" ng-repeat="fret in fretMatrix[0]">
+                    {{formatRoman($index)}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="fret-row" ng-repeat="fretRow in fretMatrix">
+            <td class="fret" ng-repeat="fret in fretRow">
+                <span class="note note-open">
+                    <span class="note-label">{{fret.note}}</span>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
